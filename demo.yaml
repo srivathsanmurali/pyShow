@@ -1,0 +1,13 @@
+Title: A Journey
+Subtitle: What the hell I do here
+Author: Sri
+Slides:
+  - Title: What did I work on
+    Contents: |
+      An open source presentation creator
+  
+  - Title: I can set up multiple HTML5 templates
+    Contents: |
+      - dzSlides
+      - reveal.js(Soon)
+      - shower
