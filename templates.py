@@ -57,5 +57,3 @@ class revealJSTemplate:
     def getTemplate(self):
         env = Environment(loader=FileSystemLoader('./templates/revealJS'))
         return env.get_template('index.html')
-
-

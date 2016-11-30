@@ -1,4 +1,5 @@
 import yaml
+import shutil
 
 def saveHTMLToFile(filename, HTML):
     with open(filename, "wb") as fh:
