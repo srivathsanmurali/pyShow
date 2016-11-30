@@ -2,10 +2,11 @@
 from jinja2 import Environment, FileSystemLoader
 import pypandoc as pp
 import os
+import shutil
 
 class Template:
     """
-    wrapper for dz template
+    wrapper for revealJS template
     """
     def __init__(self, slidesDict, outDir):
         """
@@ -19,11 +20,10 @@ class Template:
 
     def setupDir(self):
         if not os.path.exists(self.outDir):
-            os.makedirs(self.outDir)
-
+            copyDirectory("./templates/revealJS", self.outDir)
 
     def render(self):
-        env = Environment(loader=FileSystemLoader('./templates/dz1'))
+        env = Environment(loader=FileSystemLoader('./templates/revealJS'))
         template = env.get_template('index.html')
         n = len(self.slidesDict['Slides'])
         for sId in range(n):
@@ -33,3 +33,19 @@ class Template:
                          to='html5', format='markdown_github')
         out = template.render(self.slidesDict)
         return out.encode('utf8')
+
+def copyDirectory(src, dest):
+    try:
+        shutil.copytree(src, dest)
+    # Directories are the same
+    except shutil.Error as e:
+        print('Directory not copied. Error: %s' % e)
+    # Any error saying that the directory doesn't exist
+    except OSError as e:
+        print('Directory not copied. Error: %s' % e)
+
+def test():
+    test = Template(dict(), "./out")
+
+if __name__ == "__main__":
+    test()

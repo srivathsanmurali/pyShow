@@ -1,5 +1,5 @@
 import sys
-from templates.dz1Template import Template
+from templates.revealJSTemplate import Template
 from utilities import *
 
 def main():
