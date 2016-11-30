@@ -4,6 +4,7 @@ import pypandoc as pp
 from utilities import *
 import os
 
+
 def render(templateSource, slidesDict):
     template = templateSource.getTemplate()
     n = len(slidesDict['Slides'])
