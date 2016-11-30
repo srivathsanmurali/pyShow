@@ -1,5 +1,5 @@
 import sys
-from templates.revealJSTemplate import Template
+from templates import *
 from utilities import *
 
 def main():
@@ -8,8 +8,8 @@ def main():
         exit()
 
     slides = readSlidesFile(sys.argv[1])
-    temp = Template(slides, sys.argv[2])
-    out = temp.render()
+    temp = dz1Template(sys.argv[2])
+    out = render(temp, slides)
     saveHTMLToFile(temp.outFile, out)
 
 if __name__ == "__main__":
